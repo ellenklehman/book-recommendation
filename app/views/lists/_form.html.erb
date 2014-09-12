@@ -1,0 +1,14 @@
+<% if @list.errors.any? %>
+  <p> say what? </p>
+  <ul>
+    <% @list.error.full_messages.each do |message| %>
+        <li> <%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for [@user, @list], remote: true do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.submit(class: "btn btn-primary") %>
+<% end %>
