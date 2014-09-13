@@ -6,15 +6,15 @@ class ListsController < ApplicationController
 
   def new
     @list = List.new
-    @user = User.find(params[:id])
     respond_to do |format|
-      format.html { redirect_to user_list_path(@user, @list) }
+      format.html { redirect_to list_path(@list) }
       format.js
     end
   end
 
   def create
-    @list = List.new(list_params)
+    @lists = List.all
+    @list = current_user.lists.new(list_params)
     if @list.save
       flash[:notice] = "Your list was saved!"
       respond_to do |format|
@@ -26,7 +26,7 @@ class ListsController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find(params[:user_id])
     @list = List.find(params[:id])
   end
 

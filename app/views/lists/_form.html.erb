@@ -7,7 +7,7 @@
   </ul>
 <% end %>
 
-<%= form_for [@user, @list], remote: true do |f| %>
+<%= form_for @list, remote: true do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
   <%= f.submit(class: "btn btn-primary") %>
