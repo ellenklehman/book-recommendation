@@ -1,4 +1,8 @@
-<h1><%= @user.email %>'s <%= @list.name %> List!</h1>
+<% if current_user != nil && current_user.id = @user.id %>
+  <h1><%= @user.email %>'s <%= @list.name %> List!</h1>
+<% else %>
+  <h1><%= @list.name %> List!</h1>
+<% end %>
 
 
 <p><%= link_to "Add a book", new_book_path(list_id: @list.id), id: "add-book", remote: true %></p>
@@ -8,3 +12,6 @@
   <%= render @list.books %>
 
 </div>
+
+<br>
+<p><%= link_to "Return to home", root_url, class: "btn btn-primary" %></p>
