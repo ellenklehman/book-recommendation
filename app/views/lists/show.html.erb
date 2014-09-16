@@ -1,2 +1,10 @@
-<h1>List!</h1>
+<h1><%= @user.email %>'s <%= @list.name %> List!</h1>
 
+
+<p><%= link_to "Add a book", new_book_path(list_id: @list.id), id: "add-book", remote: true %></p>
+<p>Click on a book title to read the description of the book.</p>
+
+<div id="all-books">
+
+
+</div>

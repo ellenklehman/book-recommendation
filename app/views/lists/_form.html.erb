@@ -1,5 +1,5 @@
 <% if @list.errors.any? %>
-  <p> say what? </p>
+  <p>  We found an error. </p>
   <ul>
     <% @list.error.full_messages.each do |message| %>
         <li> <%= message %></li>

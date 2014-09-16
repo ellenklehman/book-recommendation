@@ -26,8 +26,8 @@ class ListsController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:user_id])
     @list = List.find(params[:id])
+    @user = User.find(@list.user_id)
   end
 
 private

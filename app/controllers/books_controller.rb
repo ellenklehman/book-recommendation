@@ -4,4 +4,32 @@ class BooksController < ApplicationController
   def index
   end
 
+  def new
+    @list = List.find(params[:list_id])
+    @book = Book.new
+    respond_to do |format|
+      format.html { redirect_to list_path(@list) }
+      format.js
+    end
+  end
+
+  def create
+    @books = Book.all
+    @list = List.find(params[:book][:list_id])
+    @book = Book.new(book_params)
+    if @book.save
+      flash[:notice] = "Your book was saved!"
+      respond_to do |format|
+        format.js
+      end
+    else
+      render 'new'
+    end
+  end
+
+private
+
+  def book_params
+    params.require(:book).permit(:title, :author, :genre, :description, :list_id)
+  end
 end
