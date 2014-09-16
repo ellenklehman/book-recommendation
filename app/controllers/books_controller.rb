@@ -17,6 +17,7 @@ class BooksController < ApplicationController
     @books = Book.all
     @list = List.find(params[:book][:list_id])
     @book = Book.new(book_params)
+    @book.list_id = @list.id
     if @book.save
       flash[:notice] = "Your book was saved!"
       respond_to do |format|
@@ -30,6 +31,6 @@ class BooksController < ApplicationController
 private
 
   def book_params
-    params.require(:book).permit(:title, :author, :genre, :description, :list_id)
+    params.require(:book).permit(:title, :author, :genre, :description)
   end
 end
