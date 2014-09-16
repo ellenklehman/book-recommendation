@@ -12,9 +12,11 @@ FactoryGirl.define do
     author('Louisa May Alcott')
     genre('Historical Fiction')
     description('A story of 4 sisters who deal with love, loss and family during the post civil war era.')
+    list
   end
 
   factory :list do
     name('Historical YA')
+    user
   end
 end
