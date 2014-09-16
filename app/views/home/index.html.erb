@@ -11,8 +11,8 @@
   <p><%= link_to "Make a List", new_list_path, id: "make-list", class: "btn btn-primary", remote: true %></p>
   <br>
   <ul id="all-lists">Here are all of your lists:
-    <% if @user.lists == nil %>
-      <p>There are no lists at this time.</p>
+    <% if @user.lists == [] %>
+      <li><strong>There are no lists at this time.</strong></li>
     <% else %>
       <%= render @user.lists %>
     <% end %>
