@@ -1,9 +1,0 @@
-<h1><%=@user.email %></h1>
-
-<%= link_to "Make a List", new_list_path, id: "make-list", remote: true %></p>
-
-
-<div id="all-lists">
-  <%= render @user.lists %>
-
-</div>

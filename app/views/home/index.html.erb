@@ -1,0 +1,21 @@
+<h1>Welcome to Book Suggest!</h1>
+
+<h4>This website allows you to create lists of your favorite books!</h4>
+
+
+<% if current_user == nil %>
+  <h5>Click the signup tab above if you are new to the site, or click sign in if you are a returning customer!</h5>
+<% end %>
+
+<% if current_user != nil && current_user.id == @user.id %>
+  <p><%= link_to "Make a List", new_list_path, id: "make-list", class: "btn btn-primary", remote: true %></p>
+  <br>
+  <ul id="all-lists">Here are all of your lists:
+    <% if @user.lists == nil %>
+      <p>There are no lists at this time.</p>
+    <% else %>
+      <%= render @user.lists %>
+    <% end %>
+  </ul>
+<% end %>
+
