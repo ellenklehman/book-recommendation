@@ -12,7 +12,7 @@ describe "the signin process" do
      visit '/users/login'
      fill_in 'Email', :with => 'example@example.com'
      fill_in 'Password', :with => 'passWord'
-     click_button 'Log in'
+     click_on 'Log in'
      expect(page).to have_content 'Invalid'
    end
 end
